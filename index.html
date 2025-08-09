@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>emea connect</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Login/Register Screen -->
+    <div id="auth-screen" class="screen active">
+        <div class="auth-container">
+            <div class="auth-header">
+                <h1 class="app-title">EMEA CONNECT</h1>
+                <p class="app-subtitle">A Platform Used for communicate students</p>
+            </div>
+
+            <!-- Login Form -->
+            <div id="login-form" class="auth-form active">
+                <h2>Welcome Back</h2>
+                <form id="login-form-element">
+                    <div class="input-group">
+                        <label for="login-username">Username</label>
+                        <input type="text" id="login-username" required minlength="3" maxlength="20">
+                    </div>
+                    <div class="input-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required minlength="6">
+                    </div>
+                    <button type="submit" class="auth-btn primary">Login</button>
+                </form>
+                <p class="auth-switch">
+                    Don't have an account? 
+                    <button id="show-register" class="link-btn">Register here</button>
+                </p>
+            </div>
+
+            <!-- Register Form -->
+            <div id="register-form" class="auth-form">
+                <h2>Create Account</h2>
+                <form id="register-form-element">
+                    <div class="input-group">
+                        <label for="register-username">Choose Username</label>
+                        <input type="text" id="register-username" required minlength="3" maxlength="20" 
+                               placeholder="Enter unique username">
+                        <small class="input-help">3-20 characters, letters and numbers only</small>
+                    </div>
+                    <div class="input-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" required minlength="6" 
+                               placeholder="Minimum 6 characters">
+                    </div>
+                    <div class="input-group">
+                        <label for="register-confirm">Confirm Password</label>
+                        <input type="password" id="register-confirm" required minlength="6" 
+                               placeholder="Re-enter password">
+                    </div>
+                    <div class="input-group">
+                        <label for="register-display-name">Display Name (Optional)</label>
+                        <input type="text" id="register-display-name" maxlength="30" 
+                               placeholder="How others will see you">
+                    </div>
+                    <button type="submit" class="auth-btn primary">Create Account</button>
+                </form>
+                <p class="auth-switch">
+                    Already have an account? 
+                    <button id="show-login" class="link-btn">Login here</button>
+                </p>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <!-- Profile Setup Screen -->
+    <div id="profile-setup-screen" class="screen">
+        <div class="profile-setup-container">
+            <div class="setup-header">
+                <h2>Complete Your Profile</h2>
+                <p>Set up your profile picture and preferences</p>
+            </div>
+
+            <div class="profile-setup-content">
+                <div class="profile-pic-section">
+                    <div class="current-profile-pic">
+                        <img id="setup-profile-img" src="/placeholder.svg" alt="Profile Picture" style="display: none;">
+                        <div id="setup-profile-placeholder" class="profile-placeholder">
+                            <span class="placeholder-icon">👤</span>
+                            <span class="placeholder-text">No Image</span>
+                        </div>
+                    </div>
+                    
+                    <!-- HERE ADD YOUR IMAGES - Profile picture options -->
+                    <div class="profile-pic-options">
+                        <h3>Choose a Profile Picture:</h3>
+                        <div class="pic-options-grid">
+                            <div class="pic-option" data-type="upload">
+                                <div class="pic-preview">📁</div>
+                                <span>Upload Image</span>
+                            </div>
+                            <div class="pic-option" data-type="avatar" data-avatar="🐱">
+                                <div class="pic-preview">🐱</div>
+                                <span>Cat</span>
+                            </div>
+                            <div class="pic-option" data-type="avatar" data-avatar="🐶">
+                                <div class="pic-preview">🐶</div>
+                                <span>Dog</span>
+                            </div>
+                            <div class="pic-option" data-type="avatar" data-avatar="🦊">
+                                <div class="pic-preview">🦊</div>
+                                <span>Fox</span>
+                            </div>
+                            <div class="pic-option" data-type="avatar" data-avatar="🐺">
+                                <div class="pic-preview">🐺</div>
+                                <span>Wolf</span>
+                            </div>
+                            <div class="pic-option" data-type="avatar" data-avatar="🦝">
+                                <div class="pic-preview">🦝</div>
+                                <span>Raccoon</span>
+                            </div>
+                            <div class="pic-option" data-type="avatar" data-avatar="🐸">
+                                <div class="pic-preview">🐸</div>
+                                <span>Frog</span>
+                            </div>
+                            <div class="pic-option" data-type="avatar" data-avatar="🦋">
+                                <div class="pic-preview">🦋</div>
+                                <span>Butterfly</span>
+                            </div>
+                            <!-- HERE ADD YOUR IMAGES - Add more profile picture options as needed -->
+                        </div>
+                    </div>
+
+                    <input type="file" id="profile-pic-upload" accept="image/*" style="display: none;">
+                </div>
+
+                <div class="setup-actions">
+                    <button id="skip-setup-btn" class="auth-btn secondary">Do It later</button>
+                    <button id="complete-setup-btn" class="auth-btn primary">Complete Setup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App Screen -->
+    <div id="main-screen" class="screen">
+        <!-- Top Navigation -->
+        <nav class="top-nav">
+            <div class="nav-left">
+                <h2 class="nav-title">CAMPUS CONNECT</h2>
+                <div class="user-badge">
+                    <div class="user-profile-pic">
+                        <img id="nav-profile-img" src="/placeholder.svg" alt="Profile" style="display: none;">
+                        <div id="nav-profile-placeholder" class="nav-profile-placeholder">👤</div>
+                    </div>
+                    <div class="user-info">
+                        <span id="nav-username" class="username">Loading...</span>
+                        <span id="nav-display-name" class="display-name"></span>
+                    </div>
+                    <div class="status-dot online"></div>
+                </div>
+            </div>
+            
+            <div class="nav-center">
+                <div class="sync-status">
+                    <div id="sync-indicator" class="sync-indicator">
+                        <span class="sync-dot"></span>
+                        <span id="sync-text">Syncing...</span>
+                    </div>
+                </div>
+                <div class="active-windows">
+                    <span class="windows-label">Active Chats:</span>
+                    <div id="window-tabs" class="window-tabs">None</div>
+                </div>
+            </div>
+            
+            <div class="nav-right">
+                <button id="theme-btn" class="icon-btn" title="Toggle Theme">🌙</button>
+                <button id="profile-btn" class="icon-btn" title="Profile Settings">👤</button>
+                <button id="settings-btn" class="icon-btn" title="Settings">⚙️</button>
+                <button id="logout-btn" class="icon-btn logout" title="Logout">🚪</button>
+            </div>
+        </nav>
+
+        <!-- Main Container -->
+        <div class="main-container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Online Users -->
+                <section class="sidebar-section">
+                    <div class="section-header">
+                        <h3>Online Friends</h3>
+                        <span id="online-count" class="count-badge">0</span>
+                    </div>
+                    <div id="users-container" class="users-list"></div>
+                </section>
+
+                <!-- Group Rooms -->
+                <section class="sidebar-section">
+                    <div class="section-header">
+                        <h3>Group Rooms</h3>
+                        <button id="create-room-btn" class="add-btn" title="Create Room">+</button>
+                    </div>
+                    <div id="rooms-container" class="rooms-list"></div>
+                </section>
+
+                <!-- Window Controls -->
+                <section class="sidebar-section">
+                    <div class="section-header">
+                        <h3>TEAM ACE</h3>
+                    </div>
+                    <div class="control-buttons">
+                       
+                    </div>
+                </section>
+            </aside>
+
+            <!-- Feed Area -->
+            <main class="feed-area">
+                <div class="feed-header">
+                    <h2>TWEET</h2>
+                    <div class="feed-controls">
+                        <button id="refresh-feed-btn" class="icon-btn" title="Refresh Feed">🔄</button>
+                        <span id="online-users-count" class="online-indicator">👥 0 online</span>
+                    </div>
+                </div>
+                
+                <!-- Post Composer -->
+                <div class="composer">
+                    <div class="composer-header">
+                        <div class="composer-user">
+                            <div class="composer-profile-pic">
+                                <img id="composer-profile-img" src="/placeholder.svg" alt="Your Profile" style="display: none;">
+                                <div id="composer-profile-placeholder" class="composer-profile-placeholder">👤</div>
+                            </div>
+                            <span id="composer-username">You</span>
+                        </div>
+                    </div>
+                    <textarea id="post-input" placeholder="Share something with everyone..." maxlength="300"></textarea>
+                    <div class="composer-footer">
+                        <div class="composer-options">
+                            <!-- HERE ADD YOUR IMAGES - Image upload for posts -->
+                            <button id="add-image-btn" class="composer-option" title="Add Image">🖼️</button>
+                            <input type="file" id="post-image-upload" accept="image/*" style="display: none;">
+                        </div>
+                        <div class="composer-actions">
+                            <span id="char-counter" class="char-count">300</span>
+                            <button id="post-btn" class="primary-btn" disabled>Post</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Posts Feed -->
+                <div id="posts-feed" class="posts-container"></div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Chat Windows Container -->
+    <div id="chat-windows" class="chat-windows-container"></div>
+
+    <!-- Profile Modal -->
+    <div id="profile-modal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Profile Settings</h3>
+                <button class="close-modal-btn">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="profile-settings">
+                    <div class="profile-pic-settings">
+                        <div class="current-pic-display">
+                            <img id="modal-profile-img" src="/placeholder.svg" alt="Profile Picture" style="display: none;">
+                            <div id="modal-profile-placeholder" class="modal-profile-placeholder">👤</div>
+                        </div>
+                        <button id="change-pic-btn" class="secondary-btn">Change Picture</button>
+                    </div>
+                    
+                    <div class="profile-info-settings">
+                        <div class="setting-item">
+                            <label>Username:</label>
+                            <div class="username-display">
+                                <span id="profile-username">Loading...</span>
+                                <span class="username-note">(Cannot be changed)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-item">
+                            <label for="profile-display-name">Display Name:</label>
+                            <input type="text" id="profile-display-name" maxlength="30" 
+                                   placeholder="How others see you">
+                        </div>
+                        
+                        <div class="setting-item">
+                            <label for="profile-status">Status Message:</label>
+                            <input type="text" id="profile-status" maxlength="50" 
+                                   placeholder="What's on your mind?">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="posts-count">0</span>
+                        <span class="stat-label">Posts</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="chats-count">0</span>
+                        <span class="stat-label">Chats</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="online-time">0h</span>
+                        <span class="stat-label">Online Time</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="save-profile-btn" class="primary-btn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Room Modal -->
+    <div id="room-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create Group Room</h3>
+                <button class="close-modal-btn">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <label for="room-name-input">Room Name:</label>
+                    <input type="text" id="room-name-input" placeholder="Enter room name" maxlength="30">
+                </div>
+                <div class="input-group">
+                    <label for="room-description">Description (Optional):</label>
+                    <textarea id="room-description" placeholder="What's this room about?" maxlength="100"></textarea>
+                </div>
+                <p class="modal-description">Create a room for multiple friends to chat together.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="cancel-room-btn" class="secondary-btn">Cancel</button>
+                <button id="confirm-room-btn" class="primary-btn">Create Room</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Settings</h3>
+                <button class="close-modal-btn">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-tabs">
+                    <button class="settings-tab active" data-tab="general">General</button>
+                    <button class="settings-tab" data-tab="privacy">Privacy</button>
+                    <button class="settings-tab" data-tab="data">Data</button>
+                </div>
+                
+                <div class="settings-content">
+                    <div id="general-settings" class="settings-panel active">
+                        <div class="setting-item">
+                            <label>Share Link:</label>
+                            <div class="share-link">
+                                <input type="text" id="share-link-input" readonly>
+                                <button id="copy-link-btn" class="copy-btn">📋</button>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-item">
+                            <label>Notifications:</label>
+                            <div class="setting-toggle">
+                                <input type="checkbox" id="notifications-toggle" checked>
+                                <label for="notifications-toggle" class="toggle-label">Enable sound notifications</label>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-item">
+                            <label>Auto-sync:</label>
+                            <div class="setting-toggle">
+                                <input type="checkbox" id="autosync-toggle" checked>
+                                <label for="autosync-toggle" class="toggle-label">Automatically sync messages</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="privacy-settings" class="settings-panel">
+                        <div class="setting-item">
+                            <label>Online Status:</label>
+                            <div class="setting-toggle">
+                                <input type="checkbox" id="online-status-toggle" checked>
+                                <label for="online-status-toggle" class="toggle-label">Show when I'm online</label>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-item">
+                            <label>Profile Visibility:</label>
+                            <select id="profile-visibility">
+                                <option value="public">Public</option>
+                                <option value="friends">Friends Only</option>
+                                <option value="private">Private</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div id="data-settings" class="settings-panel">
+                        <div class="setting-item">
+                            <button id="export-data-btn" class="secondary-btn">📥 Export My Data</button>
+                            <small>Download all your messages and profile data</small>
+                        </div>
+                        
+                        <div class="setting-item">
+                            <button id="clear-data-btn" class="danger-btn">🗑️ Clear All Data</button>
+                            <small>This will delete all your local data permanently</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Picture Selection Modal -->
+    <div id="picture-modal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Choose Profile Picture</h3>
+                <button class="close-modal-btn">×</button>
+            </div>
+            <div class="modal-body">
+                <!-- HERE ADD YOUR IMAGES - Profile picture selection grid -->
+                <div class="picture-selection">
+                    <div class="picture-tabs">
+                        <button class="picture-tab active" data-tab="avatars">Avatars</button>
+                        <button class="picture-tab" data-tab="upload">Upload</button>
+                    </div>
+                    
+                    <div class="picture-content">
+                        <div id="avatars-tab" class="picture-panel active">
+                            <div class="avatars-grid">
+                                <div class="avatar-option" data-avatar="🐱">🐱</div>
+                                <div class="avatar-option" data-avatar="🐶">🐶</div>
+                                <div class="avatar-option" data-avatar="🦊">🦊</div>
+                                <div class="avatar-option" data-avatar="🐺">🐺</div>
+                                <div class="avatar-option" data-avatar="🦝">🦝</div>
+                                <div class="avatar-option" data-avatar="🐸">🐸</div>
+                                <div class="avatar-option" data-avatar="🐙">🐙</div>
+                                <div class="avatar-option" data-avatar="🦋">🦋</div>
+                                <div class="avatar-option" data-avatar="🐝">🐝</div>
+                                <div class="avatar-option" data-avatar="🦄">🦄</div>
+                                <div class="avatar-option" data-avatar="🐲">🐲</div>
+                                <div class="avatar-option" data-avatar="🦁">🦁</div>
+                                <div class="avatar-option" data-avatar="🐯">🐯</div>
+                                <div class="avatar-option" data-avatar="🐨">🐨</div>
+                                <div class="avatar-option" data-avatar="🐼">🐼</div>
+                                <div class="avatar-option" data-avatar="🦉">🦉</div>
+                                <!-- HERE ADD YOUR IMAGES - Add more avatar options -->
+                            </div>
+                        </div>
+                        
+                        <div id="upload-tab" class="picture-panel">
+                            <div class="upload-area">
+                                <div class="upload-zone" id="upload-zone">
+                                    <div class="upload-icon">📁</div>
+                                    <p>Click to upload or drag & drop</p>
+                                    <small>Supports: JPG, PNG, GIF (Max 5MB)</small>
+                                </div>
+                                <input type="file" id="picture-upload" accept="image/*" style="display: none;">
+                            </div>
+                            
+                            <div id="image-preview" class="image-preview" style="display: none;">
+                                <img id="preview-img" src="/placeholder.svg" alt="Preview">
+                                <button id="remove-preview" class="remove-btn">×</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancel-picture-btn" class="secondary-btn">Cancel</button>
+                <button id="save-picture-btn" class="primary-btn">Save Picture</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Window Template -->
+    <template id="chat-window-template">
+        <div class="chat-window">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <div class="chat-user-pic">
+                        <img class="chat-user-img" src="/placeholder.svg" alt="User" style="display: none;">
+                        <div class="chat-user-placeholder">👤</div>
+                    </div>
+                    <div class="chat-info">
+                        <span class="chat-name"></span>
+                        <span class="chat-status"></span>
+                    </div>
+                </div>
+                <div class="chat-controls">
+                    <button class="chat-control-btn minimize-btn" title="Minimize">−</button>
+                    <button class="chat-control-btn maximize-btn" title="Maximize">□</button>
+                    <button class="chat-control-btn close-btn" title="Close">×</button>
+                </div>
+            </div>
+            <div class="chat-body">
+                <div class="messages-container"></div>
+                <div class="typing-indicator" style="display: none;">
+                    <span class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="typing-text">Someone is typing...</span>
+                </div>
+                <div class="message-input-container">
+                    <input type="text" class="message-input" placeholder="Type a message..." maxlength="200">
+                    <!-- HERE ADD YOUR IMAGES - Image attachment for messages -->
+                    <button class="attach-btn" title="Attach Image">📎</button>
+                    <button class="send-btn" title="Send Message">Send</button>
+                </div>
+            </div>
+            <div class="resize-handle"></div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>
